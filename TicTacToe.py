@@ -2,11 +2,17 @@ import os
 import time
 import random
 
+def Sorting():
+	print("Sorting")
+
 def rules_multiplayer():
 	print("""
 	
 Multiplayer rules:
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 54078c9aef429c7387488b79b9fefc469b154372
 Each player choose a character.
 
 To choose a field, players should enter a number from 1 to 9.
