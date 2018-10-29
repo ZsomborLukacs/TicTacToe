@@ -6,7 +6,7 @@ def rules_multiplayer():
 	print("""
 	
 Multiplayer rules:
-
+	Janika
 Each player choose a character.
 
 To choose a field, players should enter a number from 1 to 9.
