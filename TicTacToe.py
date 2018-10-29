@@ -55,7 +55,9 @@ PLease choose:
 
 1. Single player
 2. Multiplayer
-3. Quit
+3. Rules
+4. Results
+5. Quit
 """)
 
 
@@ -86,7 +88,7 @@ player_1_Score = 0
 player_2_Score = 0
 draw_Score = 0
 
-while True:
+while (Menu != 5):
 	board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 	if(Menu == 1):
 		
@@ -98,8 +100,11 @@ while True:
 		ai_Character = input()
 
 		counter = 1
-
+		
 		while True:
+			if (counter == 1):
+				board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+
 			os.system("clear")
 			board_printing()
 			if (counter % 2 == 1):
@@ -140,8 +145,11 @@ while True:
 				
 				board_printing()
 				result_printing_single_player(single_Player_Score, computer_Score, draw_Score)
-
-				break
+				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				if(Second_input == 2):
+					break
+				else:
+					counter = 1
 			
 			if (counter == 10):
 
@@ -150,8 +158,12 @@ while True:
 				
 				board_printing()				
 				result_printing_single_player(single_Player_Score, computer_Score, draw_Score)
-
-				break
+				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				if(Second_input == 2):
+					break
+				else:
+					counter = 1
+		
 	
 	if(Menu == 2):
 
@@ -165,6 +177,8 @@ while True:
 		counter = 1
 
 		while True:
+			if (counter == 1):
+				board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 			os.system("clear")
 			board_printing()
 			if (counter % 2 == 1):
@@ -202,7 +216,11 @@ while True:
 					player_1_Score += 1
 
 				result_printing_multiplayer(player_1_Score, player_2_Score, draw_Score)
-				break
+				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				if(Second_input == 2):
+					break
+				else:
+					counter = 1
 			
 			if (counter == 10):
 
@@ -211,81 +229,86 @@ while True:
 				draw_Score += 1
 
 				result_printing_multiplayer(player_1_Score, player_2_Score, draw_Score)
-				break
-	
+				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				if(Second_input == 2):
+					break
+				else:
+					counter = 1
 	if(Menu == 3):
-
-		print("Would you like to save results? (y/n)")
-		save = input()
-		if(save == "y"):
-			print("Select a name for the current results: ")
-			save_name = input()
-
-			single_Player_Score_str = str(single_Player_Score)
-			computer_Score_str = str(computer_Score)
-			single_player_draw_str = str(single_player_draw)
-
-			player_1_Score_str = str(player_1_Score)
-			player_2_Score_str = str(player_2_Score)
-			draw_Score_str = str(draw_Score)
-			
-			try:
-				file = open("Save.txt", "a")
-				file.write(save_name)
-				file.write('\n')
-				file.write('\n')
-				file.write("Result:")
-				file.write('\n')
-				file.write('\n')
-				file.write("Single player results:")
-				file.write('\n')
-				file.write('\n')
-				file.write("Player score:   ")
-				file.write(single_Player_Score_str)
-				file.write('\n')
-				file.write("Computer score: ")
-				file.write(computer_Score_str)
-				file.write('\n')
-				file.write("Draw score:     ")
-				file.write(single_player_draw_str)
-				file.write('\n')
-				file.write('\n')
-				file.write("Multiplayer results:")
-				file.write('\n')
-				file.write('\n')
-				file.write("Player 1 score:     ")
-				file.write(player_1_Score_str)
-				file.write('\n')
-				file.write("Player 2 score:     ")
-				file.write(player_2_Score_str)
-				file.write('\n')
-				file.write("Draw score:         ")
-				file.write(draw_Score_str)
-				file.write('\n')
-				file.write('\n')
-				file.write('\n')
+		while True:
+			print("Rules")
+			Second_input = int(input("Enter 1 for main menu"))
+			if(Second_input == 1):
+				break
+	if(Menu == 4):
+		while True:
+			print("Results")
+			Second_input = int(input("Enter 1 for main menu"))
+			if(Second_input == 1):
+				break
 
 
-				print("Results saved.")
 
-				file.close()
-			except:
-				print("Writing error")
+	menu_printing()
+	Menu = int(input())
 
-			
-			print("Thanks for playing, hope you had a good time!")
-		if(save == "n"):
-			print("Thanks for playing, hope you had a good time!")
-		break
+print("Would you like to save results? (y/n)")
+save = input()
+if(save == "y"):
+	print("Select a name for the current results: ")
+	save_name = input()
+
+	single_Player_Score_str = str(single_Player_Score)
+	computer_Score_str = str(computer_Score)
+	single_player_draw_str = str(single_player_draw)
+
+	player_1_Score_str = str(player_1_Score)
+	player_2_Score_str = str(player_2_Score)
+	draw_Score_str = str(draw_Score)
+
+	try:
+		file = open("Save.txt", "a")
+		file.write(save_name)
+		file.write('\n')
+		file.write('\n')
+		file.write("Result:")
+		file.write('\n')
+		file.write('\n')
+		file.write("Single player results:")
+		file.write('\n')
+		file.write('\n')
+		file.write("Player score:   ")
+		file.write(single_Player_Score_str)
+		file.write('\n')
+		file.write("Computer score: ")
+		file.write(computer_Score_str)
+		file.write('\n')
+		file.write("Draw score:     ")
+		file.write(single_player_draw_str)
+		file.write('\n')
+		file.write('\n')
+		file.write("Multiplayer results:")
+		file.write('\n')
+		file.write('\n')
+		file.write("Player 1 score:     ")
+		file.write(player_1_Score_str)
+		file.write('\n')
+		file.write("Player 2 score:     ")
+		file.write(player_2_Score_str)
+		file.write('\n')
+		file.write("Draw score:         ")
+		file.write(draw_Score_str)
+		file.write('\n')
+		file.write('\n')
+		file.write('\n')
+
+
+		print("Results saved.")
+
+		file.close()
+	except:
+		print("Writing error")
 	
-	Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
-
-	if(Second_input == 1 and Menu == 1):
-		Menu = 1
-
-	if(Second_input == 1 and Menu == 2):
-		Menu = 2
-		
-	if(Second_input == 2):
-		menu_printing()
-		Menu = int(input())
+	print("Thanks for playing, hope you had a good time!")
+if(save == "n"):
+	print("Thanks for playing, hope you had a good time!")
