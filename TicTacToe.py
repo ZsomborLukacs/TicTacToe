@@ -2,6 +2,21 @@ import os
 import time
 import random
 
+def number_validation(num_1, num_2):
+	character = input()
+
+	while(character.isdigit() != True):
+		print("Invalid character, please enter a number between 1 and 5.")
+		character = input()
+	
+	Number = int(character)
+
+	while(Number < num_1 or Number > num_2):
+		print("Invalid number, please enter a number again.")
+		Number = int(input())
+
+	return Number
+
 def print_results():
     f = open("Save.txt", "r")
     for x in f:
@@ -83,11 +98,10 @@ board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 menu_printing()
 
-Menu = int(input())
 
-while(Menu < 1 or Menu > 5):
-	print("Invalid number, please enter a number again.")
-	Menu = int(input())
+Menu = number_validation(1, 5)
+
+
 
 single_Player_Score = 0
 computer_Score = 0
@@ -265,7 +279,14 @@ while (Menu != 5):
 
 
 	menu_printing()
-	Menu = int(input())
+
+	menu_string = input()
+
+	while(menu_string.isdigit() != True):
+		print("Invalid character, please enter a number between 1 and 5.")
+		menu_string = input()
+
+	Menu = int(menu_string)
 
 	while(Menu < 1 or Menu > 5):
 		print("Invalid number, please enter a number again.")
