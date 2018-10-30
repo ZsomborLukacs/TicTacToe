@@ -6,13 +6,19 @@ def number_validation(num_1, num_2):
 	character = input()
 
 	while(character.isdigit() != True):
-		print("Invalid character, please enter a number between 1 and 5.")
+		if(num_1 == num_2):
+			print("Invalid character, enter", num_1)
+		else:
+			print("Invalid character, please enter a number between", num_1, "and", num_2, " .")
 		character = input()
 	
 	Number = int(character)
 
 	while(Number < num_1 or Number > num_2):
-		print("Invalid number, please enter a number again.")
+		if(num_1 == num_2):
+			print("Invalid number, enter", num_1)
+		else:
+			print("Invalid number, please enter a number again.")
 		Number = int(input())
 
 	return Number
@@ -263,13 +269,15 @@ while (Menu != 5):
 		while True:
 			rules_single_player()
 			rules_multiplayer()
-			Second_input = int(input("Enter 1 for main menu"))
+			print("Enter 1 for main menu.")
+			Second_input = number_validation(1, 1)
 			if(Second_input == 1):
 				break
 	if(Menu == 4):
 		while True:
 			print_results()
-			Second_input = int(input("Enter 1 for main menu"))
+			print("Enter 1 for main menu.")
+			Second_input = number_validation(1, 1)
 			if(Second_input == 1):
 				break
 
@@ -277,17 +285,7 @@ while (Menu != 5):
 
 	menu_printing()
 
-	menu_string = input()
-
-	while(menu_string.isdigit() != True):
-		print("Invalid character, please enter a number between 1 and 5.")
-		menu_string = input()
-
-	Menu = int(menu_string)
-
-	while(Menu < 1 or Menu > 5):
-		print("Invalid number, please enter a number again.")
-		Menu = int(input())
+	Menu = number_validation(1, 5)
 
 print("Would you like to save results? (y/n)")
 save = input()
