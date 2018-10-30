@@ -339,7 +339,7 @@ if(save == "y"):
 
 		file.close()
 	except:
-		print("Writing error")
+		print("Writing error!")
 	
 	print("Thanks for playing, hope you had a good time!")
 if(save == "n"):
