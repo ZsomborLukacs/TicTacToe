@@ -150,8 +150,8 @@ while (Menu != 5):
 			os.system("clear")
 			board_printing()
 			if (counter % 2 == 1):
-				choice = input("Player's turn: ")
-				choice = int(choice)
+				print("Player's turn: ")
+				choice = number_validation(1,9)
 				current_Player_Character = player1_Character
 			else:
 				print("Computer's turn: ")
@@ -180,7 +180,8 @@ while (Menu != 5):
 				
 				board_printing()
 				result_printing_single_player(single_Player_Score, computer_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
@@ -193,7 +194,8 @@ while (Menu != 5):
 				
 				board_printing()				
 				result_printing_single_player(single_Player_Score, computer_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
@@ -217,12 +219,12 @@ while (Menu != 5):
 			os.system("clear")
 			board_printing()
 			if (counter % 2 == 1):
-				choice = input("First player's turn: ")
-				choice = int(choice)
+				print("First player's turn: ")
+				choice = number_validation(1,9)
 				current_Player_Character = player1_Character
 			else:
-				choice = input("Second player's turn: ")
-				choice = int(choice)
+				print("Second player's turn: ")
+				choice = number_validation(1,9)
 				current_Player_Character = player2_Character
 
 
@@ -244,7 +246,8 @@ while (Menu != 5):
 					player_1_Score += 1
 
 				result_printing_multiplayer(player_1_Score, player_2_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
@@ -257,7 +260,8 @@ while (Menu != 5):
 				draw_Score += 1
 
 				result_printing_multiplayer(player_1_Score, player_2_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
