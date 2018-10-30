@@ -2,19 +2,6 @@ import os
 import time
 import random
 
-def check_winning(board, current_Player_Character):
-	if(board[1] == current_Player_Character and board[2] == current_Player_Character and board[3] == current_Player_Character) or \
-	(board[4] == current_Player_Character and board[5] == current_Player_Character and board[6] == current_Player_Character) or \
-	(board[7] == current_Player_Character and board[8] == current_Player_Character and board[9] == current_Player_Character) or \
-	(board[1] == current_Player_Character and board[4] == current_Player_Character and board[7] == current_Player_Character) or \
-	(board[2] == current_Player_Character and board[5] == current_Player_Character and board[8] == current_Player_Character) or \
-	(board[3] == current_Player_Character and board[6] == current_Player_Character and board[9] == current_Player_Character) or \
-	(board[1] == current_Player_Character and board[5] == current_Player_Character and board[9] == current_Player_Character) or \
-	(board[3] == current_Player_Character and board[5] == current_Player_Character and board[7] == current_Player_Character):
-		return True
-	else:
-		return False
-
 def number_validation(num_1, num_2):
 	character = input()
 
@@ -149,9 +136,11 @@ while (Menu != 5):
 
 			os.system("clear")
 			board_printing()
+			
+
 			if (counter % 2 == 1):
-				choice = input("Player's turn: ")
-				choice = int(choice)
+				print("Players turn: ")
+				choice = number_validation(1,9)
 				current_Player_Character = player1_Character
 			else:
 				print("Computer's turn: ")
@@ -168,7 +157,14 @@ while (Menu != 5):
 				print ("Sorry, that's not an empty place!")
 				time.sleep(3)
 
-			if (check_winning(board, current_Player_Character) == True):
+			if (board[1] == current_Player_Character and board[2] == current_Player_Character and board[3] == current_Player_Character) or \
+				(board[4] == current_Player_Character and board[5] == current_Player_Character and board[6] == current_Player_Character) or \
+				(board[7] == current_Player_Character and board[8] == current_Player_Character and board[9] == current_Player_Character) or \
+				(board[1] == current_Player_Character and board[4] == current_Player_Character and board[7] == current_Player_Character) or \
+				(board[2] == current_Player_Character and board[5] == current_Player_Character and board[8] == current_Player_Character) or \
+				(board[3] == current_Player_Character and board[6] == current_Player_Character and board[9] == current_Player_Character) or \
+				(board[1] == current_Player_Character and board[5] == current_Player_Character and board[9] == current_Player_Character) or \
+				(board[3] == current_Player_Character and board[5] == current_Player_Character and board[7] == current_Player_Character):
 				os.system("clear")
 				
 				if(current_Player_Character == player1_Character):
@@ -180,7 +176,8 @@ while (Menu != 5):
 				
 				board_printing()
 				result_printing_single_player(single_Player_Score, computer_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
@@ -193,7 +190,8 @@ while (Menu != 5):
 				
 				board_printing()				
 				result_printing_single_player(single_Player_Score, computer_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
@@ -217,12 +215,12 @@ while (Menu != 5):
 			os.system("clear")
 			board_printing()
 			if (counter % 2 == 1):
-				choice = input("First player's turn: ")
-				choice = int(choice)
+				print("First player's turn: ")
+				choice = number_validation(1,9)
 				current_Player_Character = player1_Character
 			else:
-				choice = input("Second player's turn: ")
-				choice = int(choice)
+				print("Second player's turn: ")
+				choice = number_validation(1,9)
 				current_Player_Character = player2_Character
 
 
@@ -233,7 +231,14 @@ while (Menu != 5):
 				print ("Sorry, that's not an empty place!")
 				time.sleep(3)
 
-			if (check_winning(board, current_Player_Character) == True):
+			if (board[1] == current_Player_Character and board[2] == current_Player_Character and board[3] == current_Player_Character) or \
+				(board[4] == current_Player_Character and board[5] == current_Player_Character and board[6] == current_Player_Character) or \
+				(board[7] == current_Player_Character and board[8] == current_Player_Character and board[9] == current_Player_Character) or \
+				(board[1] == current_Player_Character and board[4] == current_Player_Character and board[7] == current_Player_Character) or \
+				(board[2] == current_Player_Character and board[5] == current_Player_Character and board[8] == current_Player_Character) or \
+				(board[3] == current_Player_Character and board[6] == current_Player_Character and board[9] == current_Player_Character) or \
+				(board[1] == current_Player_Character and board[5] == current_Player_Character and board[9] == current_Player_Character) or \
+				(board[3] == current_Player_Character and board[5] == current_Player_Character and board[7] == current_Player_Character):
 				os.system("clear")
 
 				print (current_Player_Character, " wins! Congratulations")
@@ -244,7 +249,8 @@ while (Menu != 5):
 					player_1_Score += 1
 
 				result_printing_multiplayer(player_1_Score, player_2_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
@@ -257,7 +263,8 @@ while (Menu != 5):
 				draw_Score += 1
 
 				result_printing_multiplayer(player_1_Score, player_2_Score, draw_Score)
-				Second_input = int(input("What would you like to do? (1: Rematch, 2: Main menu)"))
+				print("What would you like to do? (1: Rematch, 2: Main menu)")
+				Second_input = number_validation(1,2)
 				if(Second_input == 2):
 					break
 				else:
