@@ -109,6 +109,8 @@ while (Menu != 5):
 		ai_Character = input()
 
 		counter = 1
+
+		choice = str
 		
 		while True:
 			if (counter == 1):
@@ -118,8 +120,11 @@ while (Menu != 5):
 			board_printing()
 			if (counter % 2 == 1):
 				choice = input("Player's turn: ")
-				choice = int(choice)
-				current_Player_Character = player1_Character
+				if(choice.isdigit() == True)
+					choice = int(choice)
+					current_Player_Character = player1_Character
+				else:
+					print("Please Enter a number between 1-9")
 			else:
 				print("Computer's turn: ")
 				choice = int(random.randint(1,9))
